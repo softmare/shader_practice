@@ -4,6 +4,7 @@ Shader "Custom/DiffuseShader"
     {
         _Color ("Choice your favorite.", COLOR) = (1,0,0,1)
         _DiffuseTex ("Texture", 2D) = "white" {}
+        _Ambient ("Ambient Intensity", Range(0, 1)) = 0.25
     }
     SubShader
     {
@@ -25,6 +26,7 @@ Shader "Custom/DiffuseShader"
             float4 _Color;
             sampler2D _DiffuseTex;
             float4 _DiffuseTex_ST;
+            float _Ambient;
 
             struct appdata
             {
@@ -58,7 +60,7 @@ Shader "Custom/DiffuseShader"
 
                 float4 tex = tex2D(_DiffuseTex, i.uv);
 
-                float nl = max(0.0, dot(normalDirection, _WorldSpaceLightPos0.xyz));
+                float nl = max(_Ambient, dot(normalDirection, _WorldSpaceLightPos0.xyz));
                 float4 diffuseTerm = nl * _Color * tex * _LightColor0;
 
                 return diffuseTerm;
