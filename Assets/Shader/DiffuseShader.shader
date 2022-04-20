@@ -3,6 +3,7 @@ Shader "Custom/DiffuseShader"
     Properties
     {
         _Color ("Choice your favorite.", COLOR) = (1,0,0,1)
+        _DiffuseTex ("Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -22,18 +23,22 @@ Shader "Custom/DiffuseShader"
             #include "UnityLightingCommon.cginc"
 
             float4 _Color;
+            sampler2D _DiffuseTex;
+            float4 _DiffuseTex_ST;
 
             struct appdata
             {
                 float4 vertex : POSITION;
                 float4 color : COLOR;
                 float3 normal : NORMAL;
+                float2 uv : TEXCOORD0; 
             };
 
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                float3 worldNormal : TEXCOORD0;
+                float3 worldNormal : TEXCOORD1;
+                float2 uv : TEXCOORD0;
             };
 
 
@@ -43,6 +48,7 @@ Shader "Custom/DiffuseShader"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 float3 worldNormal = UnityObjectToWorldNormal(v.normal);
                 o.worldNormal = worldNormal;
+                o.uv = TRANSFORM_TEX(v.uv, _DiffuseTex);
                 return o;
             }
 
@@ -50,11 +56,14 @@ Shader "Custom/DiffuseShader"
             {
                 float3 normalDirection = normalize(i.worldNormal);
 
+                float4 tex = tex2D(_DiffuseTex, i.uv);
+
                 float nl = max(0.0, dot(normalDirection, _WorldSpaceLightPos0.xyz));
-                float4 diffuseTerm = nl * _Color * _LightColor0;
+                float4 diffuseTerm = nl * _Color * tex * _LightColor0;
 
                 return diffuseTerm;
             }
+
             ENDCG
         }
     }
