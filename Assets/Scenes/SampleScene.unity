@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &36218291
 Light:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 419dc1b79114127eb9cb9869d63b36a6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 27d43bd9a116dbe879fb0a90765c725d, type: 2}
+      objectReference: {fileID: 2100000, guid: c1a9db21b12a0c1799b113149e63a51e, type: 2}
     - target: {fileID: 919132149155446097, guid: 419dc1b79114127eb9cb9869d63b36a6, type: 3}
       propertyPath: m_Name
       value: duck
