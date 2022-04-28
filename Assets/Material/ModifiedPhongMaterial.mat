@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CustomPhongMaterial
-  m_Shader: {fileID: 4800000, guid: ba32fc846f4db4fe9adb1aca2d8fe987, type: 3}
+  m_Name: ModifiedPhongMaterial
+  m_Shader: {fileID: 4800000, guid: 5c743ec96810247a79fa01fb6ad8dfae, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
