@@ -8,7 +8,12 @@ public class PostEffects : MonoBehaviour
 {
 
     public Shader curShader;
+    public bool InvertEffect;
+    public bool DepthEffect;
     private Material curMaterial;
+
+
+
     Material material
     {
         get
@@ -43,9 +48,15 @@ public class PostEffects : MonoBehaviour
 
     void OnRenderImage(RenderTexture sourceTexture, RenderTexture destTexture)
     {
-        if (curShader != null)
+        if (curShader == null)
+            return;
+        if (InvertEffect)
         {
+            Graphics.Blit(sourceTexture, destTexture, material, 0);
+        } else if (DepthEffect) {
             Graphics.Blit(sourceTexture, destTexture, material, 1);
+        } else {
+            Graphics.Blit(sourceTexture, destTexture);
         }
 
     }
