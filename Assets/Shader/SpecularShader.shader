@@ -27,6 +27,7 @@ Shader "Custom/SpecularShader"
 
             float4 _Color;
             sampler2D _DiffuseTex;
+            sampler2D _MainTex;
             float4 _DiffuseTex_ST;
             float _Ambient;
             float _Shininess;

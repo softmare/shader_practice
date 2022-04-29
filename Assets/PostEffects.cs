@@ -45,7 +45,7 @@ public class PostEffects : MonoBehaviour
     {
         if (curShader != null)
         {
-            Graphics.Blit(sourceTexture, destTexture, material, 0);
+            Graphics.Blit(sourceTexture, destTexture, material, 1);
         }
 
     }
