@@ -10,6 +10,7 @@ public class PostEffects : MonoBehaviour
     public Shader curShader;
     public bool InvertEffect;
     public bool DepthEffect;
+    public bool LinearInvertEffect;
     private Material curMaterial;
 
 
@@ -55,9 +56,12 @@ public class PostEffects : MonoBehaviour
             Graphics.Blit(sourceTexture, destTexture, material, 0);
         } else if (DepthEffect) {
             Graphics.Blit(sourceTexture, destTexture, material, 1);
+        } else if (LinearInvertEffect) {
+            Graphics.Blit(sourceTexture, destTexture, material, 2);
         } else {
             Graphics.Blit(sourceTexture, destTexture);
         }
+
 
     }
 
