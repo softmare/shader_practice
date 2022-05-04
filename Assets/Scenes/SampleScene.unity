@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17212516, g: 0.20595928, b: 0.2454971, a: 1}
+  m_IndirectSpecularColor: {r: 0.17212586, g: 0.20596011, b: 0.24549852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 419dc1b79114127eb9cb9869d63b36a6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: aaac6aa030052a89b9cb0763b572d9d8, type: 2}
+      objectReference: {fileID: 2100000, guid: 15846002661c843b0a527ae67c7df94d, type: 2}
     - target: {fileID: 919132149155446097, guid: 419dc1b79114127eb9cb9869d63b36a6, type: 3}
       propertyPath: m_Name
       value: duck
@@ -596,3 +596,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curShader: {fileID: 4800000, guid: 85361a80f322e44cdb4101001aaa2557, type: 3}
+  InvertEffect: 0
+  DepthEffect: 1
+  LinearInvertEffect: 0
