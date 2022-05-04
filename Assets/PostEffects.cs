@@ -11,6 +11,9 @@ public class PostEffects : MonoBehaviour
     public bool InvertEffect;
     public bool DepthEffect;
     public bool LinearInvertEffect;
+    public bool ToneMappingEffect;
+    [Range(1.0f, 10.0f)]
+    public float ToneMapperExposure = 2.0f;
     private Material curMaterial;
 
 
@@ -58,6 +61,9 @@ public class PostEffects : MonoBehaviour
             Graphics.Blit(sourceTexture, destTexture, material, 1);
         } else if (LinearInvertEffect) {
             Graphics.Blit(sourceTexture, destTexture, material, 2);
+        } else if (ToneMappingEffect) {
+            material.SetFloat("_ToneMapperExposure", ToneMapperExposure);
+            Graphics.Blit(sourceTexture, destTexture, material, 3);
         } else {
             Graphics.Blit(sourceTexture, destTexture);
         }
